@@ -907,7 +907,8 @@ void UAlsAnimationInstance::RefreshGroundedLean()
 	if (bPendingUpdate || Settings->General.LeanInterpolationHalfLife <= 0.0f)
 	{
 		LeanState.RightAmount = TargetLeanAmount.Y;
-		LeanState.ForwardAmount = TargetLeanAmount.X;
+		//LeanState.ForwardAmount = TargetLeanAmount.X;
+		LeanState.ForwardAmount = 0.0f;
 	}
 	else
 	{
@@ -915,6 +916,7 @@ void UAlsAnimationInstance::RefreshGroundedLean()
 
 		LeanState.RightAmount = FMath::Lerp(LeanState.RightAmount, TargetLeanAmount.Y, InterpolationAmount);
 		LeanState.ForwardAmount = FMath::Lerp(LeanState.ForwardAmount, TargetLeanAmount.X, InterpolationAmount);
+		LeanState.ForwardAmount = 0.0f;
 	}
 }
 
